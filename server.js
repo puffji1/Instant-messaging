@@ -5,6 +5,7 @@ const http = require('http');
 const server = http.createServer(app);
 const { Server } = require("socket.io");
 const io = new Server(server);
+const PORT = process.env.PORT || 3000;
 
 // ให้บริการไฟล์ index.html
 app.get('/', (req, res) => {
@@ -29,6 +30,6 @@ io.on('connection', (socket) => {
 });
 
 // รันเซิร์ฟเวอร์
-server.listen(3000, () => {
-  console.log('listening on https://puffji.free.nf');
+server.listen(PORT, () => {
+   console.log(`Server running on port ${PORT}`);
 });
